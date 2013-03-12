@@ -1,0 +1,13 @@
+.link-target-finder-selected {
+	outline: 2px solid red !important;
+}
+
+.link-target-finder-selected-redirect {
+	outline: 2px solid green !important;
+}
+.link-target-finder-selected-broken {
+	outline: 2px solid grey !important;
+}
+.link-target-finder-selected-other {
+	outline: 2px solid yellow !important;
+}
