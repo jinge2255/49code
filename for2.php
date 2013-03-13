@@ -6,6 +6,8 @@
   $links = $data_back->links;
   $current_url = $data_back->current;
   $geo = 'dk';
+  $username = 'his36910';
+  $password = 'Tao$$qi1';
   
 /*save links array to a html file*/     
   $content = '';
@@ -152,8 +154,7 @@ function url ($url,$geo){
                     $new_status = url_status($new_url);
                     
                     if ( $new_status == 'fine'){
-                        mysql_query("INSERT INTO jinge (link, status, geo) VALUES ('$url', 'broken', '$geo')");
-                        mysql_query("INSERT INTO jinge (link, status, geo) VALUES ('$new_url', 'fine', '$geo')");
+                        mysql_query("INSERT INTO jinge (link, status, geo, suggestion) VALUES ('$url', 'broken', '$geo', '$new_url')");
                        return 'broken'; //测的link为broken,所以页面要显示broken.但是因为测试了新连接，所以要把新连接放到数据库
                     }
                     else if ( $new_status == 'broken' ){
@@ -174,9 +175,19 @@ function url ($url,$geo){
 
 function url_status($url){
     
+    $user = $GLOBALS['username'];
+    $pass = $GLOBALS['password'];
+    $pattern = '/http:\/\/(www|author)\.(qa04\.|stage\.)?adobe\.com/';
+    preg_match($pattern, $url, $matches);
     
-    
-    $header = get_headers($url);
+    if ( $matches != null && stristr($matches[0], "author")){
+        $header = get_headers_x($url, 0, $user, $pass);
+    }
+        else{
+
+        $header = get_headers($url);
+        }
+        
     if ( $header == FALSE){
         return 'broken';
     }
@@ -241,6 +252,7 @@ return $matches;
 
 
     function get_headers_x($url,$format=0, $user='', $pass='') {
+        
         if (!empty($user)) {
             $authentification = base64_encode($user.':'.$pass);
             $authline = "Authorization: Basic $authentification\r\n";

@@ -1,7 +1,10 @@
 <?php
 $geo = "dk";
-$pattern = "/(\/dk\/)/";
-$string = "http://webcheatsheet.com/dk/regular_expressions.php";
+ $pattern2 = "/(\/dk\/)\/?(.*)/";
+$string = "http://www.adobe.com/dk/";
+preg_match($pattern2, $string, $matches);
+
+var_dump($matches);
 
 if (preg_match($pattern, $string, $matches)) {
   echo "Match was found <br />";

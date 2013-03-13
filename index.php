@@ -13,10 +13,10 @@
         <p>aaaaaaaaaaaaaa</p><a href="http://www.adobe.com/go/tryacrobatpro/">redirect</a>
        <p>ssssssssssssss</p> <a target="_blank" href="http://www.adobe.com/dk/products/">dk products</a>
         <p>ddddddddddd</p> <a target="_blank" href="http://www.adobe.com/products/catalog.html">en products</a>
-         <p>ffffffffffff</p> <a target="_blank" href="http://www.qa04.adobe.com/dk/products/color-lava.html">dk lava</a>
-         <p>ggggggggggg</p> <a target="_blank" href="https://www.acrobat.com/main/fr_FR/home.html">acrobat</a>
+         <p>ffffffffffff</p> <a target="_blank" href="http://www.adobe.com/dk/products/color-lava.html">dk lava</a>
+         <p>ggggggggggg</p> <a target="_blank" href="http://author.qa04.adobe.com/content/dotcom/fi/products/small-business-pricing/software-catalog.html">acrobat</a>
 
-<a href="http://www.adobe.com/asd">UK</a>
+<a href="http://author.qa04.adobe.com/content/dotcom/fi/products/small-business-pricing/software-catalog.html">UK</a>
 
 <button onclick="funphp100()">test</button>
 <button onclick="GetSelectedText()">GetSelectedText</button>
