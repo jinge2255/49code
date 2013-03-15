@@ -1,13 +1,7 @@
 <?php
+$url = "http://www.adobe.com/";
+$pattern2 = '/(.com)\/?(.*)/';//匹配http://www.adobe.com后面的                    
+preg_match($pattern2, $url, $matches2);
 
-set_time_limit(0);
-$a = array ('http://www.adobe.com/go/tryacrobatpro/','http://www.adobe.com/go/tryacrobatpro/','http://www.adobe.com/go/tryacrobatpro/','http://www.adobe.com/go/tryacrobatpro/'
-          ,'http://www.adobe.com/go/tryacrobatpro/','http://www.adobe.com/go/tryacrobatpro/',
-    'http://www.adobe.com/go/tryacrobatpro/',
-    'http://www.adobe.com/go/tryacrobatpro/',
-    'http://www.adobe.com/go/tryacrobatpro/');
-
-foreach ($a as $b){
-    get_headers($b);
-}
+var_dump($matches2);
 ?>

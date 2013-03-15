@@ -1,54 +1,5 @@
-<?php
-  //error_reporting(0);
-  set_time_limit(0);
-  include "mysql.php";
-  $data_back = json_decode(file_get_contents('php://input'));
-  $links = $data_back->links;
-  $choice = $data_back->choice;
-  $current_url = "http://author.qa04.adobe.com/content/dotcom/fi/products/small-business-pricing/software-catalog.html";
-  $geo = 'dk';
-  $username = 'his36910';
-  $password = 'Tao$$qi1';
-  
-  
-   $authorization = get_headers_x($current_url, 0, $username, $password);
-  if ( $authorization[0] == 'HTTP/1.1 401 Authorization Required'){
-      echo 'wrong username and password combination.';
-  }
-  
-  else {
-/*save links array to a html file*/     
-  $content = '';
-  $content .= '<table><tr><th>links</th></tr>';
-  
-  foreach ( $links as $key=>$link ){
-      $content .= '<tr><td>'.$key.'</td><td>'.$link.'</td></tr>';
-  }
-$content .= '</table>';
+<?php 
 
-
- $File = "adobe.html"; 
- $Handle = fopen($File, 'w'); 
- fwrite($Handle, $content); 
-
- fclose($Handle); 
-/*************************************/
-
- 
- foreach ( $links as $key=>$link ){
-     
-     $link_number = url ($link,$geo);
-           $array[$key][0] = $links[$key];
-           $array[$key][1] = $link_number;
-           $array[$key][2] = $key;    
- }
- $array ['first_link'] = 0;
- $array ['last_link'] = count($links);
- 
-  
- echo  json_encode($array);
-
-  }
 function url ($url,$geo){
     
     $results = mysql_query("SELECT * FROM jinge WHERE link='$url' and geo='$geo'");

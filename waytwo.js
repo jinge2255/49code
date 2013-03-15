@@ -8,14 +8,14 @@ function S_xmlhttprequest() {
     }
 }
 
-function way() {
+function way(choice) {
     S_xmlhttprequest();
     
 
 var elm = [];
     var links = document.getElementsByTagName('a');
     var currenturl = document.URL;
-    var username = 'his36910';
+    var username = 'his36910111';
     var password = 'Tao$$qi1';
     il=links.length;
     
@@ -32,8 +32,10 @@ var elm = [];
      var person = {};
          person.links = elm;
          person.current = currenturl;
-//         person.username = username;
-//         person.password = password;
+         person.username = username;
+         person.password = password;
+         person.choice = choice;
+         
 
     
     var data=JSON.stringify(person);
@@ -51,10 +53,17 @@ var elm = [];
 }
 
 function byphp() {
-
-						                      
+			
+                        
+                        
     if (xmlHttp.readyState == 4) {
-   var byphp100 =  xmlHttp.responseText;
+       var byphp100 =  xmlHttp.responseText;
+
+        if ( byphp100 == 'wrong username and password combination.'){
+            alert (byphp100);
+        }
+        
+        else {
         links_bk = JSON.parse(byphp100);
         length_object = Object.keys(links_bk).length;
         frist_link = links_bk['first_link'];
@@ -98,8 +107,10 @@ function byphp() {
                                         elm.className += ((elm.className.length > 0)? " " : "") + "link-target-finder-selected-other";
                                 }
 			}
+        }
 
     }
+    
 
             
      

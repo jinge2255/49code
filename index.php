@@ -9,22 +9,20 @@
 <html>
     <h1>haha</h1>
 
-       <p>asdsadqwwq</p> <a id="jinge" target="_blank" href="http://www.adobe.com">adobe</a>
+       <p>asdsadqwwq</p> <a id="jinge" target="_blank" href="http://www.adobe.com/">adobe</a>
         <p>aaaaaaaaaaaaaa</p><a href="http://www.adobe.com/go/tryacrobatpro/">redirect</a>
        <p>ssssssssssssss</p> <a target="_blank" href="http://www.adobe.com/dk/products/">dk products</a>
         <p>ddddddddddd</p> <a target="_blank" href="http://www.adobe.com/products/catalog.html">en products</a>
          <p>ffffffffffff</p> <a target="_blank" href="http://www.adobe.com/dk/products/color-lava.html">dk lava</a>
-         <p>ggggggggggg</p> <a target="_blank" href="http://author.qa04.adobe.com/content/dotcom/fi/products/small-business-pricing/software-catalog.html">acrobat</a>
 
-<a href="http://author.qa04.adobe.com/content/dotcom/fi/products/small-business-pricing/software-catalog.html">UK</a>
 
 <button onclick="funphp100()">test</button>
-<button onclick="GetSelectedText()">GetSelectedText</button>
-<button onclick="way()">way</button>
+<button onclick="way('force')">force</button>
+<button onclick="way('normal')">normal</button>
 <br>
 
 
-<div id="php100"></div>
+<div id="jinge_jinge"></div>
 </html>
 
 <?php
