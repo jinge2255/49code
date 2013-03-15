@@ -9,6 +9,8 @@
   $username = $data_back->username;
   $password = $data_back->password;
   $choice = $data_back->choice;
+  $headerlength = $data_back->headerlength;
+  $footerlength = $data_back->footerlength;
 
   
   $authorization = get_headers_x($current_url, 0, $username, $password);
@@ -18,10 +20,25 @@
   }
   
   else {
+  /*save links array to a html file*/     
+  $content = '';
+  $content .= '<table><tr><th>links</th></tr>';
   
+  foreach ( $links as $key=>$link ){
+      $content .= '<tr><td>'.$key.'</td><td>'.$link.'</td></tr>';
+  }
+$content .= '</table>';
 
 
-        $stop_at = count($links)-121; //
+ $File = "adobe.html"; 
+ $Handle = fopen($File, 'w'); 
+ fwrite($Handle, $content); 
+
+ fclose($Handle); 
+/*************************************/
+
+
+        $stop_at = count($links)-$footerlength; //
 
         //find geo
         $pattern = "/(\/(uk|sk|si|ee|bg|de|at|ch_de|lu_de|cz|ro|tr|se|no|dk|fi|br|pt|hu|hr|rs|mena_en|mena_ar|ru|ua|pl|lv|cn|tw|hk_zh|hk_en|ca|kr|sea|ap|au|nz|in|it|nl|ch_it|be_nl|eeurope|ie|be_en|lu_en|africa|es|la|mx|il_he|il_en|fr|be_fr|lu_fr|mena_fr|ch_fr|ca_fr|jp)\/)/";
@@ -33,18 +50,21 @@
             $geo = 'en';
         }
 
-
-        for ($i = 128; $i<$stop_at; $i++){
+       $b = 0;
+        for ($i = $headerlength; $i<$stop_at; $i++){
                    if ( $links[$i] != null ){
                       $status = url($links[$i],$geo);
                    }
                        $array[$i][0] = $links[$i];
                        $array[$i][1] = $status;
                        $array[$i][2] = $i;
+                       $b++;
 
         } 
 
-        $array ['first_link'] = 128;
+        $array['links'] = count($links);
+        $array ['total'] = $b;
+        $array ['first_link'] = $headerlength;
         $array ['last_link'] = $stop_at;
 
 

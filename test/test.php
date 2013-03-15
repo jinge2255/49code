@@ -1,10 +1,10 @@
 <?php
-$url = "http://author.qa04.adobe.com/content/dotcom/dk/products/photoshopfamily.html";
+$url = "http://www.facebook.com/adobeair/posts/299061590221517";
 $a = get_headers_x($url,0,'his36910','Tao$$qi1');
 var_dump($a);
 $user= 'his36910';
-$pass = 'Tao$$qi1';
-$url2 = "http://author.qa04.adobe.com/content/dotcom/dk/products/photoshopfamily.html";
+$pass = 'xxxxx';
+$url2 = "http://www.facebook.com/adobeair/posts/299061590221517";
 $b = get_headers($url2);
 var_dump($b);
 

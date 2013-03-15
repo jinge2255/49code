@@ -2,7 +2,7 @@
   set_time_limit(0);
   include "mysql.php";
   $username = 'his36910';
-  $password = 'Tao$$qi1';
+  $password = 'xxxx';
   if ( $_GET['submit']){
         $geo = $_GET['geo'];
 

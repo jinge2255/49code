@@ -14,7 +14,7 @@ function url ($url,$geo){
             $link_status = url_status($url);
             
             //匹配adobe server
-            $pattern1 = '/http:\/\/(www|author)\.(qa04\.|stage\.)?adobe\.com/';
+            $pattern1 = '/http:\/\/(www|author)\.(qa04\.|stage\.|corp\.)?adobe\.com/';
             preg_match($pattern1, $url, $matches1);
             switch ($link_status){
                 case "fine":
@@ -180,7 +180,7 @@ function url ($url,$geo){
                 case "broken":
                         //如果link broken且link带/<geo>/，去掉<geo>试验    
                 if ( stristr ( $url, "/$geo/") != null ){
-                    $pattern1 = '/http:\/\/(www|author)\.(qa04\.|stage\.)?adobe\.com/';
+                    $pattern1 = '/http:\/\/(www|author)\.(qa04\.|stage\.|corp\.)?adobe\.com/';
                     $pattern2 = "/(\/".$geo."\/)\/?(.*)/";//匹配/<geo>/后面的
                     preg_match($pattern1, $url, $matches1);
                     preg_match($pattern2, $url, $matches2);
@@ -236,7 +236,7 @@ function url_status($url){
     
     $user = $GLOBALS['username'];
     $pass = $GLOBALS['password'];
-    $pattern = '/http:\/\/(www|author)\.(qa04\.|stage\.)?adobe\.com/';
+    $pattern = '/http:\/\/(www|author)\.(qa04\.|stage\.|corp\.)?adobe\.com/';
     preg_match($pattern, $url, $matches);
     
     if ( $matches != null && stristr($matches[0], "author")){
